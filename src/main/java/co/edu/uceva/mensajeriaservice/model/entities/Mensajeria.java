@@ -14,6 +14,7 @@ public class Mensajeria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String fecha;
     private String correo;
     private String correoDestinatario;
     private String titulo;
