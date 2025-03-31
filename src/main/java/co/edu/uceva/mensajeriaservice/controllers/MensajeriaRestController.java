@@ -20,21 +20,32 @@ public class MensajeriaRestController {
 
     // Metodo que retorna todos los mensajes
     @GetMapping("/mensajeria")
-    public List<Mensajeria> getMensajeria() {return mensajeriaService.findAll();}
+    public List<Mensajeria> getMensajeria(){
+        return mensajeriaService.findAll();
+    }
 
-    // Metodo que guarda un mensaje pasandolo por el cuerpo de la peticion
+    // Metodo que guarda un mensaje pasandolo por el cuerpo de la petición
     @PostMapping("/mensajeria")
-    public Mensajeria save (@RequestBody Mensajeria mensajeria) {return mensajeriaService.save(mensajeria);}
+    public Mensajeria save(@RequestBody Mensajeria mensajeria) {
+        return mensajeriaService.save(mensajeria);
+    }
 
-    // Metodo que elimina un mensaje pasandolo por el cuerpo de la peticion
+    // Metodo que elimina un mensaje pasandolo por el cuerpo de la petición
     @DeleteMapping("/mensajeria")
-    public void delete (@RequestBody Mensajeria mensajeria) {mensajeriaService.delete(mensajeria);}
+    public void delete(@RequestBody Mensajeria mensajeria){
+        mensajeriaService.delete(mensajeria);
+    }
 
-    // Metodo que actualiza un mensaje pasandolo por el cuerpo de la peticion
+    // Metodo que actualiza un mensaje pasandolo por el cuerpo de la petición
     @PutMapping("/mensajeria")
-    public Mensajeria update (@RequestBody Mensajeria mensajeria) { return mensajeriaService.update(mensajeria);}
+    public Mensajeria update(@RequestBody Mensajeria mensajeria){
+        return mensajeriaService.update(mensajeria);
+    }
 
-    // Meteodo que retorna un mensaje por su id pasado por la URL
-    @GetMapping("/producto/{id}")
-    public Mensajeria findById(@PathVariable("id") Long id) { return mensajeriaService.findById(id);}
+    // Metodo que retorna un mensaje por su id pasado por la URL
+    @GetMapping("/mensajeria/{id}")
+    public Mensajeria findById(@PathVariable("id") Long id){
+        return mensajeriaService.findById(id);
+    }
 }
+

@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Service
-public class MensajeriaServiceImpl  implements IMensajeriaService{
+public class MensajeriaServiceImpl implements IMensajeriaService{
 
     IMensajeriaRepository mensajeriaRepository;
 
