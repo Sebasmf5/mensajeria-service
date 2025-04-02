@@ -1,7 +1,7 @@
-package co.edu.uceva.mensajeriaservice.controllers;
+package co.edu.uceva.mensajeriaservice.delivey.rest;
 
-import co.edu.uceva.mensajeriaservice.model.entities.Mensajeria;
-import co.edu.uceva.mensajeriaservice.model.services.IMensajeriaService;
+import co.edu.uceva.mensajeriaservice.domain.model.Mensajeria;
+import co.edu.uceva.mensajeriaservice.domain.model.service.IMensajeriaService;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -10,13 +10,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import static java.util.Arrays.stream;
 
