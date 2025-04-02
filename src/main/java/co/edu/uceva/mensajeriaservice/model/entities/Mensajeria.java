@@ -24,5 +24,4 @@ public class Mensajeria {
     private String correo_destinatario;
     private String cuerpo_correo;
     private LocalDate fecha_envio;
-
 }

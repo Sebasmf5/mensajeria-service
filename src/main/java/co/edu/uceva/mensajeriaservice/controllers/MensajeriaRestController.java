@@ -3,6 +3,9 @@ package co.edu.uceva.mensajeriaservice.controllers;
 import co.edu.uceva.mensajeriaservice.model.entities.Mensajeria;
 import co.edu.uceva.mensajeriaservice.model.services.IMensajeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +25,13 @@ public class MensajeriaRestController {
     @GetMapping("/mensajeria")
     public List<Mensajeria> getMensajeria(){
         return mensajeriaService.findAll();
+    }
+
+    // Metodo que retorna todos los mensajes paginados
+    @GetMapping("/mensajeria/page/{page}")
+    public Page<Mensajeria> index(@PathVariable Integer page) {
+        Pageable pageable = PageRequest.of(page, 4);
+        return mensajeriaService.findAll(pageable);
     }
 
     // Metodo que guarda un mensaje pasandolo por el cuerpo de la petición
