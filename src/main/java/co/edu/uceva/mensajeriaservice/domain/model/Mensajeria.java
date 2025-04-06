@@ -19,7 +19,7 @@ public class Mensajeria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "El cuerpo del mensaje no puede estar vacío")
+    @NotBlank(message = "El asunto no puede estar vacío")
     @Size(min = 10, max = 2000, message = "El mensaje debe tener entre 10 y 2000 caracteres")
     @Column(nullable = false, length = 2000)
     private String asunto;
