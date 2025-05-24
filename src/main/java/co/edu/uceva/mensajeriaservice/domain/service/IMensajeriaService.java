@@ -1,4 +1,4 @@
-package co.edu.uceva.mensajeriaservice.domain.model.service;
+package co.edu.uceva.mensajeriaservice.domain.service;
 
 import co.edu.uceva.mensajeriaservice.domain.model.Mensajeria;
 import org.springframework.data.domain.Page;

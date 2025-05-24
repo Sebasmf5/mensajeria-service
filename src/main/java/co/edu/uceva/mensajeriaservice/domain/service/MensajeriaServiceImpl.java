@@ -1,13 +1,15 @@
-package co.edu.uceva.mensajeriaservice.domain.model.service;
+package co.edu.uceva.mensajeriaservice.domain.service;
 
 import co.edu.uceva.mensajeriaservice.domain.model.Mensajeria;
 import co.edu.uceva.mensajeriaservice.domain.model.repository.IMensajeriaRepository;
+import co.edu.uceva.mensajeriaservice.domain.service.IMensajeriaService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Clase que implementa los métodos de la interfaz IProductoService
@@ -16,7 +18,7 @@ import java.util.List;
 
 
 @Service
-public class MensajeriaServiceImpl implements IMensajeriaService{
+public class MensajeriaServiceImpl implements IMensajeriaService {
 
     IMensajeriaRepository mensajeriaRepository;
 
@@ -35,7 +37,7 @@ public class MensajeriaServiceImpl implements IMensajeriaService{
 
     @Override
     @Transactional(readOnly = true)
-    public Mensajeria findById(Long id) {return mensajeriaRepository.findById(id).orElse(null);}
+    public Optional findById(Long id) {return mensajeriaRepository.findById(id);}
 
     @Override
     @Transactional

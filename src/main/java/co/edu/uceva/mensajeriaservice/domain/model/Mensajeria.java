@@ -1,5 +1,6 @@
 package co.edu.uceva.mensajeriaservice.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;

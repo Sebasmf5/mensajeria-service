@@ -1,11 +1,8 @@
 package co.edu.uceva.mensajeriaservice.delivey.rest;
 
-import co.edu.uceva.mensajeriaservice.domain.exception.MensajeNoEncontradoExcepcion;
-import co.edu.uceva.mensajeriaservice.domain.exception.NoHayMensajesException;
-import co.edu.uceva.mensajeriaservice.domain.exception.PaginaSinMensajesException;
-import co.edu.uceva.mensajeriaservice.domain.exception.ValidationException;
+import co.edu.uceva.mensajeriaservice.domain.exception.*;
 import co.edu.uceva.mensajeriaservice.domain.model.Mensajeria;
-import co.edu.uceva.mensajeriaservice.domain.model.service.IMensajeriaService;
+import co.edu.uceva.mensajeriaservice.domain.service.IMensajeriaService;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -72,6 +69,7 @@ public class MensajeriaRestController {
         if(result.hasErrors()){
             throw new ValidationException(result);
         }
+        if(mensajeria.getId() == null && mensajeriaService.findById(mensajeria.getId()).orElse(null) != null) {throw new MensajeExistenteExcepcion(mensajeria.getId());}
         Map<String, Object> response = new HashMap<>();
         Mensajeria nuevoMensaje = mensajeriaService.save(mensajeria);
         response.put(MENSAJE, "El mensaje ha sido creado con éxito!");
