@@ -69,7 +69,9 @@ public class MensajeriaRestController {
         if(result.hasErrors()){
             throw new ValidationException(result);
         }
-        if(mensajeria.getId() == null && mensajeriaService.findById(mensajeria.getId()).orElse(null) != null) {throw new MensajeExistenteExcepcion(mensajeria.getId());}
+        if(mensajeria.getId() != null && mensajeriaService.findById(mensajeria.getId()).orElse(null) != null) {
+            throw new MensajeExistenteExcepcion(mensajeria.getId());
+        }
         Map<String, Object> response = new HashMap<>();
         Mensajeria nuevoMensaje = mensajeriaService.save(mensajeria);
         response.put(MENSAJE, "El mensaje ha sido creado con éxito!");
